@@ -7,6 +7,8 @@ resource "aws_instance" "tf-example" {
     vpc_security_group_ids = [aws_security_group.allow-ssh.id]
 
     key_name = aws_key_pair.mykeypair.key_name
+
+    iam_instance_profile = aws_iam_instance_profile.s3-mybucket-role-instanceprofile.name
 }
 
 resource "aws_ebs_volume" "ebs-volume-1" {
